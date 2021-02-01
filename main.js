@@ -1,6 +1,6 @@
 //National Target
 let jan_n_target = 295000000;
-let feb_n_target = 0;
+let feb_n_target = 300000000;
 let mar_n_target = 0;
 let apr_n_target = 0;
 let may_n_target = 0;
@@ -38,11 +38,19 @@ let haron_total_sold = `${jan_h_sold+feb_h_sold+mar_h_sold+apr_h_sold+may_h_sold
 // Total Sold Yearly Mishkat
 let mishkat_total_sold = `${Number(kamrul_total_sold)+Number(ibrahim_total_sold)+Number(faysal_total_sold)+Number(sohel_total_sold)+Number(haron_total_sold)}`;
 let jan_m_sold = `${jan_k_sold+jan_i_sold+jan_f_sold+jan_s_sold+jan_h_sold}`;
+let feb_m_sold = `${feb_k_sold+feb_i_sold+feb_f_sold+feb_s_sold+feb_h_sold}`;
 
 //======================Sold Area End=================
 
-function mTargetSoldAchi(share, sold) {
+function mTargetSoldAchi1(share, sold) {
     let target = (share * jan_n_target)/100;
+    let mSold = sold;
+    let mAchi = Math.round((sold / target) * 100).toFixed(2);
+    return `${Math.round(target)} / ${Math.round(mSold)} / ${Math.round(mAchi)}%`;
+}
+
+function mTargetSoldAchi2(share, sold) {
+    let target = (share * feb_n_target)/100;
     let mSold = sold;
     let mAchi = Math.round((sold / target) * 100).toFixed(2);
     return `${Math.round(target)} / ${Math.round(mSold)} / ${Math.round(mAchi)}%`;
@@ -50,15 +58,28 @@ function mTargetSoldAchi(share, sold) {
 
 
 
+
 //=========FIXED=============FOR January Target/ Sold/ Achi Area Start=================
 
 //January Target / Sold / Achivement
-let jan_kamrul = mTargetSoldAchi(0.08, jan_k_sold);
-let jan_ibrahim = mTargetSoldAchi(0.10, jan_i_sold);
-let jan_faysal = mTargetSoldAchi(0.08, jan_f_sold);
-let jan_sohel = mTargetSoldAchi(0.11, jan_s_sold);
-let jan_haron = mTargetSoldAchi(0.07, jan_h_sold);
-let jan_mishkat = mTargetSoldAchi(0.44, jan_m_sold);
+let jan_kamrul = mTargetSoldAchi1(0.08, jan_k_sold);
+let jan_ibrahim = mTargetSoldAchi1(0.10, jan_i_sold);
+let jan_faysal = mTargetSoldAchi1(0.08, jan_f_sold);
+let jan_sohel = mTargetSoldAchi1(0.11, jan_s_sold);
+let jan_haron = mTargetSoldAchi1(0.07, jan_h_sold);
+let jan_mishkat = mTargetSoldAchi1(0.44, jan_m_sold);
+
+//=========FIXED=============January Target/ Sold/ Achi Area Start=================
+
+//=========FIXED=============FOR January Target/ Sold/ Achi Area Start=================
+
+//February Target / Sold / Achivement
+let feb_kamrul = mTargetSoldAchi2(0.08, feb_k_sold);
+let feb_ibrahim = mTargetSoldAchi2(0.10, feb_i_sold);
+let feb_faysal = mTargetSoldAchi2(0.08, feb_f_sold);
+let feb_sohel = mTargetSoldAchi2(0.11, feb_s_sold);
+let feb_haron = mTargetSoldAchi2(0.07, feb_h_sold);
+let feb_mishkat = mTargetSoldAchi2(0.44, feb_m_sold);
 
 //=========FIXED=============January Target/ Sold/ Achi Area Start=================
 
@@ -79,12 +100,12 @@ let mishkat_total_target = `${(.44*Math.round(total_n_target).toFixed(2))/100}`;
 //=========FIXED=============Total Target Area Start=================
 
 const colleguesDetails = [
-    {'name':'Kamrul Islam','t_target_y':`${kamrul_total_target}`,'t_sold_y':`${Math.round(kamrul_total_sold)}`,'t_achi_y':`${Math.round(kamrul_total_sold/kamrul_total_target*100).toFixed(2)}%`,'jan':`${jan_kamrul}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
-    {'name':'Ebrahim Khalil','t_target_y':`${ibrahim_total_target}`,'t_sold_y':`${Math.round(ibrahim_total_sold)}`,'t_achi_y':`${Math.round(ibrahim_total_sold/ibrahim_total_target*100).toFixed(2)}%`,'jan':`${jan_ibrahim}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
-    {'name':'Faysal Karim','t_target_y':`${faysal_total_target}`,'t_sold_y':`${Math.round(faysal_total_sold)}`,'t_achi_y':`${Math.round(faysal_total_sold/faysal_total_target*100).toFixed(2)}%`,'jan':`${jan_faysal}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
-    {'name':'Sohel Rana','t_target_y':`${sohel_total_target}`,'t_sold_y':`${Math.round(sohel_total_sold)}`,'t_achi_y':`${Math.round(sohel_total_sold/sohel_total_target*100).toFixed(2)}%`,'jan':`${jan_sohel}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
-    {'name':'Vacant (from 09-01-2021)','t_target_y':`${Math.round(haron_total_target)}`,'t_sold_y':`${Math.round(haron_total_sold)}`,'t_achi_y':`${Math.round(haron_total_sold/haron_total_target*100).toFixed(2)}%`,'jan':`${jan_haron}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
-    {'name':'Mishkat Ahmed','t_target_y':`${Math.round(mishkat_total_target)}`,'t_sold_y':`${Math.round(mishkat_total_sold)}`,'t_achi_y':`${Math.round(mishkat_total_sold/mishkat_total_target*100).toFixed(2)}%`,'jan':`${jan_mishkat}`,'feb':`${0}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`}
+    {'name':'Kamrul Islam','t_target_y':`${kamrul_total_target}`,'t_sold_y':`${Math.round(kamrul_total_sold)}`,'t_achi_y':`${Math.round(kamrul_total_sold/kamrul_total_target*100).toFixed(2)}%`,'jan':`${jan_kamrul}`,'feb':`${feb_kamrul}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
+    {'name':'Ebrahim Khalil','t_target_y':`${ibrahim_total_target}`,'t_sold_y':`${Math.round(ibrahim_total_sold)}`,'t_achi_y':`${Math.round(ibrahim_total_sold/ibrahim_total_target*100).toFixed(2)}%`,'jan':`${jan_ibrahim}`,'feb':`${feb_ibrahim}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
+    {'name':'Faysal Karim','t_target_y':`${faysal_total_target}`,'t_sold_y':`${Math.round(faysal_total_sold)}`,'t_achi_y':`${Math.round(faysal_total_sold/faysal_total_target*100).toFixed(2)}%`,'jan':`${jan_faysal}`,'feb':`${feb_faysal}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
+    {'name':'Sohel Rana','t_target_y':`${sohel_total_target}`,'t_sold_y':`${Math.round(sohel_total_sold)}`,'t_achi_y':`${Math.round(sohel_total_sold/sohel_total_target*100).toFixed(2)}%`,'jan':`${jan_sohel}`,'feb':`${feb_sohel}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
+    {'name':'Vacant (from 09-01-2021)','t_target_y':`${Math.round(haron_total_target)}`,'t_sold_y':`${Math.round(haron_total_sold)}`,'t_achi_y':`${Math.round(haron_total_sold/haron_total_target*100).toFixed(2)}%`,'jan':`${jan_haron}`,'feb':`${feb_haron}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`},
+    {'name':'Mishkat Ahmed','t_target_y':`${Math.round(mishkat_total_target)}`,'t_sold_y':`${Math.round(mishkat_total_sold)}`,'t_achi_y':`${Math.round(mishkat_total_sold/mishkat_total_target*100).toFixed(2)}%`,'jan':`${jan_mishkat}`,'feb':`${feb_mishkat}`,'mar':`${0}`,'apr':`${0}`,'may':`${0}`,'jun':`${0}`,'jul':`${0}`,'aug':`${0}`,'sep':`${0}`,'oct':`${0}`,'nov':`${0}`,'dec':`${0}`}
 ];
 
 function myAction(data){
